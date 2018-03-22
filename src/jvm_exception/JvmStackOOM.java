@@ -1,6 +1,8 @@
 package jvm_exception;
 
 /**
+ * java栈异常
+ *
  * OutOfMemoryError
  * StackOverflowError
  *
