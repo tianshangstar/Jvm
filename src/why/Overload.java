@@ -2,6 +2,10 @@ package why;
 
 import java.io.Serializable;
 
+/**
+ * 方法重载，自动类型转换
+ * char->int->long->float->double->serizalizable & Comparable
+ */
 public class Overload {
     public static void sayHello(Object arg) {
         System.out.println("hello Object");

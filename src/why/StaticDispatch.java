@@ -1,5 +1,12 @@
 package why;
 
+/**
+ * static dispatch
+ * <p>
+ * 核心：静态类型， 静态类型是在编译期可知的，并不会在运行时进行最终对象类型判定
+ * <p>
+ * 虚拟机（准确的说是编译期）在执行重载时，使用的是参数的静态类型
+ */
 public class StaticDispatch {
     static abstract class Human {
     }
