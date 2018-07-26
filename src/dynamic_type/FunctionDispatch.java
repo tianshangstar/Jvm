@@ -30,17 +30,21 @@ public class FunctionDispatch {
             //方法2，用invoke包下的api
             //一些有意思的事情： 注意，非static内部类，默认构造函数会隐藏一个外部类的引用。 so......
             //下面还有一个static内部类的例子
-            MethodType constructorMethodType = MethodType.methodType(void.class, FunctionDispatch.class);
-            MethodType methodType = MethodType.methodType(void.class);
+//            MethodType constructorMethodType = MethodType.methodType(void.class, FunctionDispatch.class);
+//            MethodType methodType = MethodType.methodType(void.class);
 
             try {
-                MethodHandle constructorHandle = MethodHandles.lookup().findConstructor(GrandFather.class, constructorMethodType);
+//                MethodHandle constructorHandle = MethodHandles.lookup().findConstructor(GrandFather.class, constructorMethodType);
+//
+//                GrandFather o = (GrandFather) constructorHandle.invokeExact(new FunctionDispatch());
+//
+//                MethodHandle funHandle = MethodHandles.lookup().findVirtual(GrandFather.class, "thinking", methodType).bindTo(o);
+//
+//                funHandle.invoke();
 
-                GrandFather o = (GrandFather) constructorHandle.invokeExact(new FunctionDispatch());
-
-                MethodHandle funHandle = MethodHandles.lookup().findVirtual(GrandFather.class, "thinking", methodType).bindTo(o);
-
-                funHandle.invoke();
+                MethodType mt = MethodType.methodType(void.class);
+                MethodHandle methodHandle = MethodHandles.lookup().findSpecial(GrandFather.class, "thinking", mt, getClass());
+                methodHandle.invoke(this);
             } catch (NoSuchMethodException e) {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {
