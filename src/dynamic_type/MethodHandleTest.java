@@ -7,6 +7,15 @@ import java.lang.invoke.MethodType;
 /**
  * 使用java.long.invoke实现动态类型
  * 有点类似于函数指针。
+ * <p>
+ * -----------------------
+ * <p>
+ * 与翻身的不同
+ * 1、反射模拟的是java层的调用，MethodHandle模拟的字节码调用
+ * 2、反射所包含的信息远比methodHandle包含的信息多---几乎是全部的类信息
+ * 也可以便捷描述为：反射->重量级的， MethondHandle->轻量级的
+ * 3、对于虚拟机的各种方法指令调用优化，methodHandle可以考虑用同样的方式优化，但是反射不行
+ * 4、反射->java； MethodHande的方式是为了运行在jvm上的语言
  */
 public class MethodHandleTest {
     static class ClassA {
